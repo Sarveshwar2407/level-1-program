@@ -316,8 +316,286 @@ for row in tmatrix:
     print("Row sum:",s)
 
 
-# In[ ]:
+# In[1]:
 
+
+l = [1,2,3,4,5]
+p = [(i, pow(i, 3)) for i in l]
+print(p)
+
+
+# In[3]:
+
+
+Dict = {'rolex': 24, 'telex': 46,'levi': 36, 'erwin': 27, 'ryuk': 45}
+K= list(Dict.keys())
+K.sort()
+sdict={i: Dict[i] for i in K}
+print(sdict)
+
+
+# In[5]:
+
+
+d= {}
+a,b,c= 5, 3, 10
+p,q,r= 12, 6, 9
+d["x-y+z"] = [a-b+c,p-q+r]
+print(d)
+
+
+# In[6]:
+
+
+d={'x':455,'y':223,'z':300,'p':908 }
+print("Dictionary: ", d)
+print("sum: ",sum(d.values()))
+
+
+# In[7]:
+
+
+dic1 = {"A": 1,"B": 2,"C": 3}
+print("Size of dic1: ",len(dic1))
+
+
+# In[8]:
+
+
+s={1,2,3,4,5}
+print("Size of set: ",len(s))
+
+
+# In[9]:
+
+
+s=set("Hello_World")
+for i in s:
+    print(i)
+
+
+# In[10]:
+
+
+s={1,2,3,4,5}
+print("Maximum of the set: ",max(s))
+print("Minimum of the set: ",min(s))
+
+
+# In[11]:
+
+
+s={1,2,3,4,5}
+print("Initial list: ",s)
+s.remove(5)
+print("Final list: ",s)
+
+
+# In[12]:
+
+
+s={1,2,3,4,5}
+p={5,6,7,8,9}
+for i in s:
+    for j in p:
+        if i==j:
+            print("Element common is:", i)
+
+
+# In[13]:
+
+
+matrix = [[1, 2, 3],
+          [4, 5, 6],
+          [7, 8, 9]]
+print("My matrix is:")
+# Assign subsequent rows to the first row elements
+for i in range(1, len(matrix)):
+    matrix[i] = matrix[0]
+
+print(matrix)
+
+
+# In[14]:
+
+
+matrix1 = [[1, 2], [3, 4]]
+matrix2 = [[4, 5], [6, 7]]
+ 
+# Printing elements of matrix1
+print("Printing elements of first matrix")
+for row in matrix1:
+    for element in row:
+        print(element, end=" ")
+    print()
+ 
+# Printing elements of matrix2
+print("Printing elements of second matrix")
+for row in matrix2:
+    for element in row:
+        print(element, end=" ")
+    print()
+ 
+# Subtracting two matrices
+result = [[0, 0], [0, 0]]
+for i in range(len(matrix1)):
+    for j in range(len(matrix1[0])):
+        result[i][j] = matrix1[i][j] - matrix2[i][j]
+ 
+# Printing the result
+print("Subtraction of two matrix")
+for row in result:
+    for element in row:
+        print(element, end=" ")
+    print()
+
+
+# In[15]:
+
+
+elements = [1, 2, 3, 2, 1, 3, 4, 5, 4, 5, 5]
+
+# Count the occurrences of each element
+element_counts = {}
+for element in elements:
+    if element in element_counts:
+        element_counts[element] += 1
+    else:
+        element_counts[element] = 1
+
+# Determine the dimensions of the matrix
+num_rows = max(element_counts.values())
+num_cols = len(element_counts)
+
+# Create the matrix and fill it with the elements
+matrix = [[None] * num_cols for _ in range(num_rows)]
+for col, element in enumerate(element_counts):
+    count = element_counts[element]
+    for row in range(count):
+        matrix[row][col] = element
+
+# Print the resulting matrix
+for row in matrix:
+    print(row)
+
+
+# In[16]:
+
+
+matrix = ((1, 2, 3),
+          (4, 5, 6),
+          (7, 8, 9))
+
+# Perform row-wise element addition
+row_sums = [sum(row) for row in zip(*matrix)]
+
+# Print the row-wise sums
+print("Row-wise sums:")
+for sum_value in row_sums:
+    print(sum_value)
+
+
+# In[17]:
+
+
+def create_even_submatrix(n):
+    matrix = [[0] * n for _ in range(n)]
+
+    for i in range(n):
+        for j in range(n):
+            if (i + j) % 2 == 0:
+                matrix[i][j] = 1
+
+    return matrix
+
+
+# Test the function
+n = 4
+result = create_even_submatrix(n)
+
+# Print the resulting matrix
+for row in result:
+    print(row)
+
+
+# In[19]:
+
+
+import inspect
+
+def my_function(erwin,levi, mikasa):
+    pass
+
+# Get the parameter names of the function
+parameters = inspect.signature(my_function).parameters
+parameter_names = list(parameters.keys())
+
+# Print the parameter names
+print(parameter_names)
+
+
+# In[21]:
+
+
+name = "levi"
+age = 30
+city = "germany"
+
+print(name, age, city)
+
+
+# In[22]:
+
+
+def power(base, exponent):
+    if exponent == 0:
+        return 1
+    elif exponent < 0:
+        return 1 / power(base, -exponent)
+    else:
+        return base * power(base, exponent - 1)
+
+# Example usage
+base =int(input("Enter the base: "))
+exponent =int(input("Enter the power: "))
+result = power(base, exponent)
+print(f"{base} raised to the power of {exponent} is: {result}")
+
+
+# In[23]:
+
+
+class grade:
+    def __init__(self, a, b):
+        self.a = a
+        self.b = b
+  
+    def __repr__(self):
+        return str((self.a, self.b))
+  
+
+g= [grade("ram", 'a'),
+       grade("ravi", 'b'),
+       grade("raj", 'c'),
+       grade("mani", 'd'),
+       grade("goku", 's')]
+  
+
+print(sorted(g, key=lambda x: x.b))
+
+
+# In[24]:
+
+
+def print_kwargs(**kwargs):
+    for key, value in kwargs.items():
+        print(f"{key}: {value}")
+
+# Example usage
+print_kwargs(name="eren", age=18, city="germany")
+
+
+# In[ ]:
 
 
 
